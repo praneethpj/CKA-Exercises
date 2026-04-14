@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web
+  namespace: exercise-01
+  labels:
+    run: pod
+    app: web
+    tier: frontend
+spec:
+  containers:
+    - image: nginx:1.27
+      name: nginx
+      resources:
+        requests:
+          cpu: "100m"
+          memory: "64Mi"
+        limits:
+          cpu: "250m"
+          memory: "128Mi"
+
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
